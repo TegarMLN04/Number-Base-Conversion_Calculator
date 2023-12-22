@@ -1,3 +1,5 @@
+document.getElementById('welcome-button').addEventListener('click', function() { window.location.href = "welcome.html";});
+
 function convert() { // Memulai Fungsi convert
   const numberInput = document.getElementById('number');
   const resultInput = document.getElementById('result');
