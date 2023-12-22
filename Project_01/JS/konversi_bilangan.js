@@ -1,4 +1,4 @@
-function convert() {
+function convert() { // Memulai Fungsi convert
   const numberInput = document.getElementById('number');
   const resultInput = document.getElementById('result');
   const conversionTypeSelect = document.getElementById('conversion-type');
