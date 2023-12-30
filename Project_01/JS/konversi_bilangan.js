@@ -1,124 +1,157 @@
 document.getElementById('welcome-button').addEventListener('click', function() { window.location.href = "welcome.html";});
 
-function convert() { // Memulai Fungsi convert
-  const numberInput = document.getElementById('number');
-  const resultInput = document.getElementById('result');
-  const conversionTypeSelect = document.getElementById('conversion-type');
-  
-  const numberValue = numberInput.value;
-  const conversionType = conversionTypeSelect.value;
-
-  if (conversionType === 'decimalToBinary') {
-    resultInput.value = convertDecimalToBinary(numberValue);
+// Fungsi Utama
+function convert() {
+   const numberInput = document.getElementById('number');
+   const resultInput = document.getElementById('result');
+   const conversionTypeSelect = document.getElementById('conversion-type');
+   
+   const numberValue = numberInput.value;
+   const conversionType = conversionTypeSelect.value;
+ 
+   const result = performConversion(numberValue, conversionType);
+   resultInput.value = result;
+ }
+ 
+ // Fungsi Konversi Umum
+ function performConversion(number, conversionType) {
+   if (conversionType === 'decimalToBinary') {
+     return convertDecimalToBinary(number);
    } else if (conversionType === 'decimalToOctal') {
-    resultInput.value = convertDecimalToOctal(numberValue);
+     return convertDecimalToOctal(number);
    } else if (conversionType === 'decimalToHex') {
-    resultInput.value = convertDecimalToHex(numberValue);
+     return convertDecimalToHex(number);
    } else if (conversionType === 'binaryToDecimal') {
-    if (/^[01]+$/.test(numberValue)) {
-       resultInput.value = convertBinaryToDecimal(numberValue);
-    } else {
-       alert('Masukkan angka biner yang valid.');
-    }
+     return convertBinaryToDecimal(number);
    } else if (conversionType === 'binaryToOctal') {
-    if (/^[01]+$/.test(numberValue)) {
-       resultInput.value = convertBinaryToOctal(numberValue);
-    } else {
-       alert('Masukkan angka biner yang valid.');
-    }
+     return convertBinaryToOctal(number);
    } else if (conversionType === 'binaryToHex') {
-    if (/^[01]+$/.test(numberValue)) {
-       resultInput.value = convertBinaryToHex(numberValue);
-    } else {
-       alert('Masukkan angka biner yang valid.');
-    }
+     return convertBinaryToHex(number);
    } else if (conversionType === 'octalToDecimal') {
-    if (/^[0-7]+$/.test(numberValue)) {
-       resultInput.value = convertOctalToDecimal(numberValue);
-    } else {
-       alert('Masukkan angka oktal yang valid.');
-    }
+     return convertOctalToDecimal(number);
    } else if (conversionType === 'octalToBinary') {
-    if (/^[0-7]+$/.test(numberValue)) {
-       resultInput.value = convertOctalToBinary(numberValue);
-    } else {
-       alert('Masukkan angka oktal yang valid.');
-    }
+     return convertOctalToBinary(number);
    } else if (conversionType === 'octalToHex') {
-    if (/^[0-7]+$/.test(numberValue)) {
-       resultInput.value = convertOctalToHex(numberValue);
-    } else {
-       alert('Masukkan angka oktal yang valid.');
-    }
+     return convertOctalToHex(number);
    } else if (conversionType === 'hexToDecimal') {
-    if (/^[0-9A-Fa-f]+$/.test(numberValue)) {
-       resultInput.value = convertHexToDecimal(numberValue);
-    } else {
-       alert('Masukkan angka heksadesimal yang valid.');
-    }
+     return convertHexToDecimal(number);
    } else if (conversionType === 'hexToBinary') {
-    if (/^[0-9A-Fa-f]+$/.test(numberValue)) {
-       resultInput.value = convertHexToBinary(numberValue);
-    } else {
-       alert('Masukkan angka heksadesimal yang valid.');
-    }
+     return convertHexToBinary(number);
    } else if (conversionType === 'hexToOctal') {
-    if (/^[0-9A-Fa-f]+$/.test(numberValue)) {
-       resultInput.value = convertHexToOctal(numberValue);
-    } else {
-       alert('Masukkan angka heksadesimal yang valid.');
-    }
+     return convertHexToOctal(number);
    } else {
-    alert('Pilih jenis konversi yang valid.');
+     alert('Pilih jenis konversi yang valid.');
+     return '';
    }
-}
-
-// Bagian Fungsi konversi 
-
-function convertDecimalToBinary(decimal) {
-  return Number(decimal).toString(2);
-}
-
-function convertDecimalToOctal(decimal) {
-  return Number(decimal).toString(8);
-}
-
-function convertDecimalToHex(decimal) {
-  return Number(decimal).toString(16).toUpperCase();
-}
-
-function convertBinaryToDecimal(binary) {
-  return parseInt(binary, 2).toString();
-}
-
-function convertBinaryToOctal(binary) {
-  return parseInt(binary, 2).toString(8);
-}
-
-function convertBinaryToHex(binary) {
-  return parseInt(binary, 2).toString(16).toUpperCase();
-}
-
-function convertOctalToDecimal(octal) {
-  return parseInt(octal, 8).toString();
-}
-
-function convertOctalToBinary(octal) {
-  return parseInt(octal, 8).toString(2);
-}
-
-function convertOctalToHex(octal) {
-  return parseInt(octal, 8).toString(16).toUpperCase();
-}
-
-function convertHexToDecimal(hex) {
-  return parseInt(hex, 16).toString();
-}
-
-function convertHexToBinary(hex) {
-  return parseInt(hex, 16).toString(2);
-}
-
-function convertHexToOctal(hex) {
-  return parseInt(hex, 16).toString(8);
-}
+ }
+ 
+ // Fungsi Konversi Masing-masing operasi
+ function convertDecimalToBinary(decimal) {
+   if (/^\d+$/.test(decimal)) {
+     return Number(decimal).toString(2);
+   } else {
+     alert('Masukkan angka desimal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertDecimalToOctal(decimal) {
+   if (/^\d+$/.test(decimal)) {
+     return Number(decimal).toString(8);
+   } else {
+     alert('Masukkan angka desimal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertDecimalToHex(decimal) {
+   if (/^\d+$/.test(decimal)) {
+     return Number(decimal).toString(16).toUpperCase();
+   } else {
+     alert('Masukkan angka desimal yang valid.');
+     return '';
+   }
+ }
+ 
+ 
+ function convertBinaryToDecimal(binary) {
+   if (/^[01]+$/.test(binary)) {
+     return parseInt(binary, 2).toString();
+   } else {
+     alert('Masukkan angka biner yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertBinaryToOctal(binary) {
+   if (/^[01]+$/.test(binary)) {
+     return parseInt(binary, 2).toString(8);
+   } else {
+     alert('Masukkan angka biner yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertBinaryToHex(binary) {
+   if (/^[01]+$/.test(binary)) {
+     return parseInt(binary, 2).toString(16).toUpperCase();
+   } else {
+     alert('Masukkan angka biner yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertOctalToDecimal(octal) {
+   if (/^[0-7]+$/.test(octal)) {
+     return parseInt(octal, 8).toString();
+   } else {
+     alert('Masukkan angka oktal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertOctalToBinary(octal) {
+   if (/^[0-7]+$/.test(octal)) {
+     return parseInt(octal, 8).toString(2);
+   } else {
+     alert('Masukkan angka oktal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertOctalToHex(octal) {
+   if (/^[0-7]+$/.test(octal)) {
+     return parseInt(octal, 8).toString(16).toUpperCase();
+   } else {
+     alert('Masukkan angka oktal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertHexToDecimal(hex) {
+   if (/^[0-9A-Fa-f]+$/.test(hex)) {
+     return parseInt(hex, 16).toString();
+   } else {
+     alert('Masukkan angka heksadesimal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertHexToBinary(hex) {
+   if (/^[0-9A-Fa-f]+$/.test(hex)) {
+     return parseInt(hex, 16).toString(2);
+   } else {
+     alert('Masukkan angka heksadesimal yang valid.');
+     return '';
+   }
+ }
+ 
+ function convertHexToOctal(hex) {
+   if (/^[0-9A-Fa-f]+$/.test(hex)) {
+     return parseInt(hex, 16).toString(8);
+   } else {
+     alert('Masukkan angka heksadesimal yang valid.');
+     return '';
+   }
+ }
+ 
