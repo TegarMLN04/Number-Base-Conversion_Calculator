@@ -1,6 +1,7 @@
+// code untuk mengambil aksi input click button pada welcome.html
 document.getElementById('welcome-button').addEventListener('click', function() { window.location.href = "welcome.html";});
 
-// Fungsi Utama
+// Fungsi Konversi Utama
 function convert() {
    const numberInput = document.getElementById('number');
    const resultInput = document.getElementById('result');
@@ -46,6 +47,7 @@ function convert() {
  }
  
  // Fungsi Konversi Masing-masing operasi
+ // Konversi Desimal ke basis lainnya
  function convertDecimalToBinary(decimal) {
    if (/^\d+$/.test(decimal)) {
      return Number(decimal).toString(2);
@@ -73,7 +75,7 @@ function convert() {
    }
  }
  
- 
+ // Konversi Biner ke basis lainnya
  function convertBinaryToDecimal(binary) {
    if (/^[01]+$/.test(binary)) {
      return parseInt(binary, 2).toString();
@@ -101,6 +103,7 @@ function convert() {
    }
  }
  
+ // Konversi Oktal ke basis lainnya
  function convertOctalToDecimal(octal) {
    if (/^[0-7]+$/.test(octal)) {
      return parseInt(octal, 8).toString();
@@ -128,6 +131,7 @@ function convert() {
    }
  }
  
+ // Konversi Heksadesimal ke basis lainnya
  function convertHexToDecimal(hex) {
    if (/^[0-9A-Fa-f]+$/.test(hex)) {
      return parseInt(hex, 16).toString();
