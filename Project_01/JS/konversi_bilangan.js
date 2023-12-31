@@ -1,5 +1,5 @@
 // code untuk mengambil aksi input click button pada welcome.html
-document.getElementById('welcome-button').addEventListener('click', function() { window.location.href = "welcome.html";});
+document.getElementById('back-button').addEventListener('click', function() { window.location.href = "welcome.html";});
 
 // Fungsi Konversi Utama
 function convert() {
@@ -13,6 +13,15 @@ function convert() {
    const result = performConversion(numberValue, conversionType);
    resultInput.value = result;
  }
+ 
+// Fungsi Reset button
+function resetNumber() {
+  const numberInput = document.getElementById('number');
+  numberInput.value = '';
+  const resultInput = document.getElementById('result');
+  resultInput.value = '';
+ }
+ 
  
  // Fungsi Konversi Umum
  function performConversion(number, conversionType) {
